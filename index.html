@@ -1,0 +1,379 @@
+<html>
+  <head>
+	  <meta charset="UTF-8">
+	  <title>Multimodal Representation Learning Based Voice Conversion for Electrolaryngeal Speech Enhancement via Contrastive Learning</title>
+  </head>
+  <body>
+	  <article>
+      <header>
+        <h1>Multimodal Representation Learning Based Voice Conversion for Electrolaryngeal Speech Enhancement via Contrastive Learning</h1>
+      </header>
+  	  </article>
+	<div><b>Authors:</b> Ding Ma, Jinyi Mi, Jiajun He, Kazuhiro Kobayashi, Naoki Nishio, and Tomoki Toda</div>
+	<div><b>Comments:</b> Submitted to APSIPA ASC 2026.</div>
+	  
+	<br>
+	<div style="width: 80%">
+		<b>Abstract:</b> Electrolaryngeal (EL) speech suffers from severe acoustic mismatches with normal speech, resulting in degraded naturalness and intelligibility. These mismatches also make sequence-to-sequence voice conversion struggle to learn robust intermediate representations, hindering EL-speech-to-normal-speech conversion (EL2SP) performance. To address this, we propose a novel multimodal contrastive learning framework to 1) achieve richer multimodal-representation learning, and 2) facilitate the transferability of multimodal representations to EL2SP. First, paired EL speech and text representations are fused to learn multimodal representations for target speech generation, during which contrastive learning is employed to encourage a semantically consistent speech–text representation space. Next, the learned fused representations are treated as fixed targets to guide speech-only representation learning through contrastive learning, enabling multimodal knowledge to be transferred to the EL2SP task without increasing model complexity. Experimental results demonstrate that the proposed method consistently outperforms not only speech-only baseline but also the baseline under the same multimodal input conditions.
+	
+	<br>
+    <div>
+      	<h2>Main concept</h2>
+      	<img src="samples/method.png" style="width: 45%;"/>
+    </div>
+    <div style="width: 80%">
+      <h2>Dataset</h2>
+      <strong>Patient 1</strong> and <strong>Patient 2</strong> datasets were used to evaluate experimental systems for EL2SP.</h2>
+    </div>
+  
+    <div style="width: 80%">
+      <h2>Systems</h2>
+      <ul>
+        <li><strong>EL speech, Normal speech</strong>: Original source EL and target normal speech as the reference.</li>
+        <li><strong>S-VC</strong>: Speech representation learning by first conducting pretraining then conducting two-stage fine-tuning with the synthetic data and original EL2SP dataset.</li>
+		<li><strong>MR-VC</strong>: Motimodal representation learning method trained with the synthetic data, original EL2SP dataset, and text data.</li>
+		<li><strong>ours-MRCL</strong>: Proposed motimodal representation learning method using two-stage cross modal contrastive learning and trained with the synthetic data, original EL2SP dataset, and text data.</li>
+      </ul>
+    </div>
+	
+	<br>	  
+    <div style="width: 80%">
+		<h2>Conversion Samples on Patient 1</h2>
+		
+        <!-- sample 1 -->
+        <h3 class="transcript">Transcription: 明けまして、おめでとうございます。 (a ke ma shi te, o me de tou go za i ma su.)</h3>
+		<br>
+		<table>
+			<tr>
+			  <th>EL speech</th><th>Normal speech</th>
+			</tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Reference:</th>
+		    </tr>
+		    <tr style="border-top: solid; border-bottom: solid;">
+		      <td>
+		        <audio controls><source src="samples/case1/el/1.wav"></audio>
+		      </td>
+		      <td>
+		        <audio controls><source src="samples/case1/normal/1.wav"></audio>
+		      </td>
+		    </tr>
+		</table>
+		
+        <br>
+        <table>
+            <tr style="border-top: solid; border-bottom: solid;">
+              <th>S-VC</th><th>MR-VC</th><th>ours-MRCL</th>
+            </tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Conversion:</th>
+		    </tr>
+            <tr style="border-top: solid; border-bottom: solid;">
+              <td>
+                <audio controls><source src="samples/case1/ab_1/1.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case1/ab_2/1.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case1/ap_1/1.wav"></audio>
+              </td>
+            </tr>
+        </table>
+		
+        <!-- sample 2 -->
+        <h3 class="transcript">Transcription: 世界的なヴァイオリニストを、招待する。 (se ka i te ki na va i o ri ni su to o, shou ta i su ru.)</h3>
+		<br>
+		<table>
+			<tr>
+			  <th>EL speech</th><th>Normal speech</th>
+			</tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Reference:</th>
+		    </tr>
+		    <tr style="border-top: solid; border-bottom: solid;">
+		      <td>
+		        <audio controls><source src="samples/case1/el/2.wav"></audio>
+		      </td>
+		      <td>
+		        <audio controls><source src="samples/case1/normal/2.wav"></audio>
+		      </td>
+		    </tr>
+		</table>
+		
+        <br>
+        <table>
+            <tr style="border-top: solid; border-bottom: solid;">
+              <th>S-VC</th><th>MR-VC</th><th>ours-MRCL</th>
+            </tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Conversion:</th>
+		    </tr>
+            <tr style="border-top: solid; border-bottom: solid;">
+             <td>
+                <audio controls><source src="samples/case1/ab_1/2.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case1/ab_2/2.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case1/ap_1/2.wav"></audio>
+              </td>
+            </tr>
+        </table>
+		
+        <!-- sample 3 -->
+        <h3 class="transcript">Transcription: 使う道具は、ペンではなくて、万年筆であった。 (tsu ka u dou gu wa, pen de wa na ku te, man nen hi tsu de a tta.)</h3>
+		<br>
+		<table>
+			<tr>
+			  <th>EL speech</th><th>Normal speech</th>
+			</tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Reference:</th>
+		    </tr>
+		    <tr style="border-top: solid; border-bottom: solid;">
+		      <td>
+		        <audio controls><source src="samples/case1/el/3.wav"></audio>
+		      </td>
+		      <td>
+		        <audio controls><source src="samples/case1/normal/3.wav"></audio>
+		      </td>
+		    </tr>
+		</table>
+		
+        <br>
+        <table>
+            <tr style="border-top: solid; border-bottom: solid;">
+             <th>S-VC</th><th>MR-VC</th><th>ours-MRCL</th>
+            </tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Conversion:</th>
+		    </tr>
+            <tr style="border-top: solid; border-bottom: solid;">
+             <td>
+                <audio controls><source src="samples/case1/ab_1/3.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case1/ab_2/3.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case1/ap_1/3.wav"></audio>
+              </td>
+            </tr>
+        </table>
+
+        <!-- sample 4 -->
+        <h3 class="transcript">Transcription: おばあちゃんに、お茶を一杯、いれてあげる。 (o ba a chan ni, o cha o i ppai, i re te a ge ru.)</h3>
+		<br>
+		<table>
+			<tr>
+			  <th>EL speech</th><th>Normal speech</th>
+			</tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Reference:</th>
+		    </tr>
+		    <tr style="border-top: solid; border-bottom: solid;">
+		      <td>
+		        <audio controls><source src="samples/case1/el/4.wav"></audio>
+		      </td>
+		      <td>
+		        <audio controls><source src="samples/case1/normal/4.wav"></audio>
+		      </td>
+		    </tr>
+		</table>
+		
+        <br>
+        <table>
+            <tr style="border-top: solid; border-bottom: solid;">
+              <th>S-VC</th><th>MR-VC</th><th>ours-MRCL</th>
+            </tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Conversion:</th>
+		    </tr>
+            <tr style="border-top: solid; border-bottom: solid;">
+             <td>
+                <audio controls><source src="samples/case1/ab_1/4.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case1/ab_2/4.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case1/ap_1/4.wav"></audio>
+              </td>
+            </tr>
+        </table>
+
+	  <br>
+      <div style="width: 80%">
+		<h2>Conversion Samples on Patient 2</h2>
+		
+        <!-- sample 1 -->
+        <h3 class="transcript">Transcription: 保証が 沢山あるものにします。 (ho shou ga ta ku san a ru mo no ni shi ma su.)</h3>
+		<br>
+		<table>
+			<tr>
+			  <th>EL speech</th><th>Normal speech</th>
+			</tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Reference:</th>
+		    </tr>
+		    <tr style="border-top: solid; border-bottom: solid;">
+		      <td>
+		        <audio controls><source src="samples/case2/el/1.wav"></audio>
+		      </td>
+		      <td>
+		        <audio controls><source src="samples/case2/normal/1.wav"></audio>
+		      </td>
+		    </tr>
+		</table>
+		
+        <br>
+        <table>
+            <tr style="border-top: solid; border-bottom: solid;">
+              <th>S-VC</th><th>MR-VC</th><th>ours-MRCL</th>
+            </tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Conversion:</th>
+		    </tr>
+            <tr style="border-top: solid; border-bottom: solid;">
+              <td>
+                <audio controls><source src="samples/case2/ab_1/1.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case2/ab_2/1.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case2/ap_1/1.wav"></audio>
+              </td>
+            </tr>
+        </table>
+		
+        <!-- sample 2 -->
+        <h3 class="transcript">Transcription: 日本の民芸品です。(ni hon no min gei hin de su.)</h3>
+		<br>
+		<table>
+			<tr>
+			  <th>EL speech</th><th>Normal speech</th>
+			</tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Reference:</th>
+		    </tr>
+		    <tr style="border-top: solid; border-bottom: solid;">
+		      <td>
+		        <audio controls><source src="samples/case2/el/2.wav"></audio>
+		      </td>
+		      <td>
+		        <audio controls><source src="samples/case2/normal/2.wav"></audio>
+		      </td>
+		    </tr>
+		</table>
+		
+        <br>
+        <table>
+            <tr style="border-top: solid; border-bottom: solid;">
+              <th>S-VC</th><th>MR-VC</th><th>ours-MRCL</th>
+            </tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Conversion:</th>
+		    </tr>
+            <tr style="border-top: solid; border-bottom: solid;">
+             <td>
+                <audio controls><source src="samples/case2/ab_1/2.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case2/ab_2/2.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case2/ap_1/2.wav"></audio>
+              </td>
+            </tr>
+        </table>
+		
+        <!-- sample 3 -->
+        <h3 class="transcript">Transcription:２０２便をキャンセルしたいのですが。 (ni hya ku ni bin o kya n se ru shi ta i no de su ga.)</h3>
+		<br>
+		<table>
+			<tr>
+			  <th>EL speech</th><th>Normal speech</th>
+			</tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Reference:</th>
+		    </tr>
+		    <tr style="border-top: solid; border-bottom: solid;">
+		      <td>
+		        <audio controls><source src="samples/case2/el/3.wav"></audio>
+		      </td>
+		      <td>
+		        <audio controls><source src="samples/case2/normal/3.wav"></audio>
+		      </td>
+		    </tr>
+		</table>
+		
+        <br>
+        <table>
+            <tr style="border-top: solid; border-bottom: solid;">
+             <th>S-VC</th><th>MR-VC</th><th>ours-MRCL</th>
+            </tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Conversion:</th>
+		    </tr>
+            <tr style="border-top: solid; border-bottom: solid;">
+             <td>
+                <audio controls><source src="samples/case2/ab_1/3.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case2/ab_2/3.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case2/ap_1/3.wav"></audio>
+              </td>
+            </tr>
+        </table>
+
+        <!-- sample 4 -->
+        <h3 class="transcript">Transcription: 違うバスに乗ってしまったようです。 (chi ga u ba su ni no tte shi ma tta you de su.)</h3>
+		<br>
+		<table>
+			<tr>
+			  <th>EL speech</th><th>Normal speech</th>
+			</tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Reference:</th>
+		    </tr>
+		    <tr style="border-top: solid; border-bottom: solid;">
+		      <td>
+		        <audio controls><source src="samples/case2/el/4.wav"></audio>
+		      </td>
+		      <td>
+		        <audio controls><source src="samples/case2/normal/4.wav"></audio>
+		      </td>
+		    </tr>
+		</table>
+		
+        <br>
+        <table>
+            <tr style="border-top: solid; border-bottom: solid;">
+              <th>S-VC</th><th>MR-VC</th><th>ours-MRCL</th>
+            </tr>
+		    <tr>
+		      <th style="text-align: left;" colspan="2">Conversion:</th>
+		    </tr>
+            <tr style="border-top: solid; border-bottom: solid;">
+             <td>
+                <audio controls><source src="samples/case2/ab_1/4.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case2/ab_2/4.wav"></audio>
+              </td>
+              <td>
+                <audio controls><source src="samples/case2/ap_1/4.wav"></audio>
+              </td>
+            </tr>
+        </table>
+
+      </div>
+
+  <br>
+  </body>
+</html>
