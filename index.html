@@ -9,12 +9,12 @@
         <h1>Multimodal Representation Learning Based Voice Conversion for Electrolaryngeal Speech Enhancement via Contrastive Learning</h1>
       </header>
   	  </article>
-	<div><b>Authors:</b> Ding Ma, Jinyi Mi, Jiajun He, Kazuhiro Kobayashi, Naoki Nishio, and Tomoki Toda</div>
-	<div><b>Comments:</b> Submitted to APSIPA ASC 2026.</div>
+	<div><b>Authors:</b> Anonymous authors.</div>
+	<div><b>Comments:</b> Submitted to SLT 2026.</div>
 	  
 	<br>
 	<div style="width: 80%">
-		<b>Abstract:</b> Electrolaryngeal (EL) speech suffers from severe acoustic mismatches with normal speech, resulting in degraded naturalness and intelligibility. These mismatches also make sequence-to-sequence voice conversion struggle to learn robust intermediate representations, hindering EL-speech-to-normal-speech conversion (EL2SP) performance. To address this, we propose a novel multimodal contrastive learning framework to 1) achieve richer multimodal-representation learning, and 2) facilitate the transferability of multimodal representations to EL2SP. First, paired EL speech and text representations are fused to learn multimodal representations for target speech generation, during which contrastive learning is employed to encourage a semantically consistent speech–text representation space. Next, the learned fused representations are treated as fixed targets to guide speech-only representation learning through contrastive learning, enabling multimodal knowledge to be transferred to the EL2SP task without increasing model complexity. Experimental results demonstrate that the proposed method consistently outperforms not only speech-only baseline but also the baseline under the same multimodal input conditions.
+		<b>Abstract:</b>Electrolaryngeal (EL) speech suffers from severe acoustic mismatches with normal speech, resulting in degraded naturalness and intelligibility. These mismatches also make sequence-to-sequence voice conversion struggle to learn robust intermediate representations, hindering EL-speech-to-normal-speech conversion (EL2SP) performance. To address this, we propose a novel multimodal contrastive learning framework to 1) achieve richer multimodal-representation learning, and 2) facilitate the transferability of multimodal representations to speech-only EL2SP. First, EL speech and text representations are fused to learn multimodal representations for target speech generation, during which cross-modal contrastive learning is employed to encourage a semantically consistent speech--text representation space. Next, the fused representations are treated as a fixed target to guide speech-only representation learning through cross-stage contrastive learning, enabling multimodal knowledge to be transferred to the EL2SP task while preserving architectural and inference simplicity. Experimental results demonstrate that the proposed method consistently outperforms both a speech-only baseline and a multimodal-based baseline.
 	
 	<br>
     <div>
